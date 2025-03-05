@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce1wssfg6iu58"]
+
+[ext_resource type="Script" path="res://Scrpts/items/dialoge/dialoge_box.gd" id="1_strwi"]
+[ext_resource type="Texture2D" uid="uid://c50ycwjmnd3gy" path="res://dialoges/dialogbg.png" id="2_u8aow"]
+[ext_resource type="FontFile" uid="uid://3c0tysl0prp7" path="res://fonts/BigBlueTermPlusNerdFontMono-Regular.ttf" id="3_j4q75"]
+
+[node name="Textbox" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_strwi")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+texture_filter = 3
+layout_mode = 2
+texture = ExtResource("2_u8aow")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 13
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 13
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+texture_filter = 3
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.2, 0.0745098, 0.0784314, 0.87451)
+theme_override_fonts/font = ExtResource("3_j4q75")
+theme_override_font_sizes/font_size = 15
+text = "ghj"
+vertical_alignment = 1
+
+[node name="DispTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="DispTimer" to="." method="_on_disp_timer_timeout"]

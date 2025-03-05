@@ -1,0 +1,78 @@
+[gd_scene load_steps=14 format=3 uid="uid://i1yqfvv38ojb"]
+
+[ext_resource type="Texture2D" uid="uid://b2yywd86cs0cj" path="res://fons/fon.png" id="1_ridh0"]
+[ext_resource type="Texture2D" uid="uid://bj0p3u4llw2h8" path="res://buttons/back.png" id="2_6rt34"]
+[ext_resource type="Texture2D" uid="uid://4cnlu7qc41cb" path="res://buttons/startbutton_deact.png" id="3_p7b14"]
+[ext_resource type="Texture2D" uid="uid://eikdwh585kd5" path="res://buttons/startbutton_activ.png" id="4_e506k"]
+[ext_resource type="Script" path="res://Scrpts/mainmenu/start_button.gd" id="5_fnsut"]
+[ext_resource type="Texture2D" uid="uid://c6tc5uos20b5j" path="res://buttons/settingsbutton_deact.png" id="6_c0yoa"]
+[ext_resource type="Texture2D" uid="uid://dnff41h0rc0se" path="res://buttons/settingsbutton_activ.png" id="7_5xjfa"]
+[ext_resource type="Script" path="res://Scrpts/mainmenu/settings_button.gd" id="7_xtde5"]
+[ext_resource type="Texture2D" uid="uid://x8jaga0hacm4" path="res://buttons/exittbutton_deact.png" id="8_f20oy"]
+[ext_resource type="Texture2D" uid="uid://bqh32ph62b76d" path="res://buttons/exittbutton_activ.png" id="9_wxpae"]
+[ext_resource type="Script" path="res://Scrpts/mainmenu/TextureButton.gd" id="10_4ieng"]
+
+[sub_resource type="Gradient" id="Gradient_eoy5r"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.0306748, 0.294479, 0.674847)
+colors = PackedColorArray(0, 0, 0, 0.498039, 0, 0, 0, 0.231373, 0, 0, 0, 0.0510045)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kfd0m"]
+gradient = SubResource("Gradient_eoy5r")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="art" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(578.222, 328.25)
+scale = Vector2(3.03472, 3.03472)
+texture = ExtResource("1_ridh0")
+
+[node name="gradient" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(577.25, 334)
+scale = Vector2(18.289, 10.4375)
+texture = SubResource("GradientTexture2D_kfd0m")
+
+[node name="panel" type="Sprite2D" parent="."]
+texture_filter = 3
+position = Vector2(179, 345.25)
+scale = Vector2(2.41016, 1.75781)
+texture = ExtResource("2_6rt34")
+
+[node name="start_button" type="TextureButton" parent="."]
+texture_filter = 3
+offset_left = 59.0
+offset_top = 223.0
+offset_right = 123.0
+offset_bottom = 255.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("3_p7b14")
+texture_hover = ExtResource("4_e506k")
+script = ExtResource("5_fnsut")
+
+[node name="settings_button" type="TextureButton" parent="."]
+texture_filter = 3
+offset_left = 57.0
+offset_top = 328.0
+offset_right = 121.0
+offset_bottom = 368.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("6_c0yoa")
+texture_hover = ExtResource("7_5xjfa")
+script = ExtResource("7_xtde5")
+
+[node name="quit_button" type="TextureButton" parent="."]
+texture_filter = 3
+offset_left = 61.0
+offset_top = 424.0
+offset_right = 125.0
+offset_bottom = 464.0
+scale = Vector2(4, 4)
+texture_normal = ExtResource("8_f20oy")
+texture_hover = ExtResource("9_wxpae")
+script = ExtResource("10_4ieng")
+
+[connection signal="pressed" from="start_button" to="start_button" method="_on_pressed"]
+[connection signal="pressed" from="settings_button" to="settings_button" method="_on_pressed"]
+[connection signal="pressed" from="quit_button" to="quit_button" method="_on_pressed"]
